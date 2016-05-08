@@ -1,4 +1,11 @@
-<h1>Edytuj Kategorię</h1>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Edytuj Kategorię</div>
 <form method="POST" action="{{ action('CategoryController@edit', ['id' => $category->id]) }}">
 	<input name="_method" type="hidden" value="PATCH">
 	{!! csrf_field() !!}
@@ -24,4 +31,8 @@
 		@endforeach
 	</ul>
 @endif
-
+            </div>
+        </div>
+    </div> 
+</div>
+@endsection

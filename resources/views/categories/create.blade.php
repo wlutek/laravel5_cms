@@ -1,5 +1,11 @@
+@extends('layouts.app')
 
-<h1>Dodaj Kategorię</h1>
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dodaj Kategorię</div>
 <form method="POST" action="{{ action('CategoryController@store') }}">
 	{!! csrf_field() !!}
 	<div>
@@ -18,4 +24,9 @@
 		@endforeach
 	</ul>
 @endif
+            </div>
+        </div>
+    </div> 
+</div>
+@endsection
 

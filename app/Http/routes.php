@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
 
 Route::get('categories', 'CategoryController@index');
 Route::post('categories', 'CategoryController@store'); 
@@ -26,9 +22,21 @@ Route::get('categories/{id}/edit', 'CategoryController@edit');
 Route::patch('categories/{id}/edit', 'CategoryController@update');
 Route::delete('categories/{id}/delete', 'CategoryController@destroy');
 
-Route::get('articles', 'ArticleController@index');
-Route::post('articles', 'ArticleController@store');
-Route::get('articles/create', 'ArticleController@create');
-Route::get('articles/{id}/edit', 'ArticleController@edit');
-Route::patch('articles/{id}/edit', 'ArticleController@update');
-Route::delete('articles/{id}/delete', 'ArticleController@destroy');
+Route::get('/', 'ArticleController@index');
+Route::post('/', 'ArticleController@store');
+Route::get('/create',[
+    'middleware' => 'auth',
+    'uses' => 'ArticleController@create'
+]);
+Route::get('/{id}/edit',[
+    'middleware' => 'auth',
+    'uses' => 'ArticleController@edit'
+]);
+Route::patch('/{id}/edit',[
+    'middleware' => 'auth',
+    'uses' =>  'ArticleController@update'
+]);
+Route::delete('/{id}/delete',[
+    'middleware' => 'auth',
+    'uses' =>  'ArticleController@destroy'
+]);
