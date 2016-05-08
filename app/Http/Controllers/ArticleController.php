@@ -23,7 +23,7 @@ class ArticleController extends Controller
         $article->fullDesc = $request->fullDesc;
         $article->category_id = $request->category_id;
         $article->save();
-        return redirect('/');
+        return redirect('articles');
     }
     
     
@@ -47,14 +47,14 @@ class ArticleController extends Controller
         $article->shortDesc = $request->shortDesc;
         $article->fullDesc = $request->fullDesc;
         $article->save();
-        return 'Poprawnie dokonano aktualizacji';
+        return redirect('articles')->with('status', 'Poprawnie dokonano aktualizacji!');
     }
     
     public function destroy($id)
     {
         $article = Article::findOrFail($id);
         $article->delete();
-        return 'Artykuł usunięty';  
+        return redirect('articles')->with('status', 'Artykuł usunięty!');
     }
     
 }

@@ -10,7 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::auth();
 
@@ -22,21 +24,24 @@ Route::get('categories/{id}/edit', 'CategoryController@edit');
 Route::patch('categories/{id}/edit', 'CategoryController@update');
 Route::delete('categories/{id}/delete', 'CategoryController@destroy');
 
-Route::get('/', 'ArticleController@index');
-Route::post('/', 'ArticleController@store');
-Route::get('/create',[
+Route::get('articles', 'ArticleController@index');
+Route::post('articles', 'ArticleController@store');
+Route::get('articles/create',[
     'middleware' => 'auth',
     'uses' => 'ArticleController@create'
 ]);
-Route::get('/{id}/edit',[
+
+Route::get('articles/{id}/edit',[
     'middleware' => 'auth',
     'uses' => 'ArticleController@edit'
 ]);
-Route::patch('/{id}/edit',[
+
+Route::patch('articles/{id}/edit',[
     'middleware' => 'auth',
     'uses' =>  'ArticleController@update'
 ]);
-Route::delete('/{id}/delete',[
+
+Route::delete('articles/{id}/delete',[
     'middleware' => 'auth',
     'uses' =>  'ArticleController@destroy'
 ]);

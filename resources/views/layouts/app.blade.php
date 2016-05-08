@@ -47,11 +47,11 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Artykuły</a></li>
+                    <li><a href="{{ url('/articles') }}">Artykuły</a></li>
             <?php if (Auth::check()) { ?>
                 <li><a href="{{ url('/categories') }}">Kategorie</a></li>
            
-                    <li><a href="{{ url('/create') }}">Dodaj artykuł</a></li>
+                    <li><a href="{{ url('articles/create') }}">Dodaj artykuł</a></li>
             <?php } ?>
                 </ul>
 
