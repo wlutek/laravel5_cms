@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dodaj Kategorię</div>
+                <div class="panel-heading">Dodaj Artykuł</div>
 <form method="POST" action="{{ action('ArticleController@store') }}">
 	{!! csrf_field() !!}
 	<div>
@@ -19,6 +19,10 @@
 	<div>
 		Artykuł:
 		<input type="text" name="fullDesc" value="{{ old('fullDesc') }}">
+	</div>
+        <div>
+		Id Categorii:
+		<input type="text" name="category_id" value="{{ old('category_id') }}">
 	</div>
 
 	<div>

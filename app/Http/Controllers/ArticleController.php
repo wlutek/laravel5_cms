@@ -21,8 +21,9 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->shortDesc = $request->shortDesc;
         $article->fullDesc = $request->fullDesc;
+        $article->category_id = $request->category_id;
         $article->save();
-        return redirect('articles');
+        return redirect('/');
     }
     
     

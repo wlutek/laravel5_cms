@@ -6,7 +6,11 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Artykuły</div>
- 
+ @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 @foreach ($articles as $article)
 	<div>
             <h1>{{ $article->title }}</h1>

@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->name = $request->name;
         $category->save();
-        return 'Poprawnie dokonano aktualizacji';
+        return redirect('categories')->with('status', 'Poprawnie dokonano aktualizacji!');
     }
 
 	
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return 'Kategoria usunięta';  
+        return redirect('categories')->with('status', 'Kategoria usunięta!');
     }
 
 }
